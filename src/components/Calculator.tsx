@@ -1,8 +1,8 @@
 import React from "react"
-interface Caracters: Array<{
-    character:string,
-    type:"value"|"operator",
-  }>
+// interface Caracters: Array<{
+//     character:string,
+//     type:"value"|"operator",
+//   }>
 const data=[
     {
         character:"1",
