@@ -5,7 +5,16 @@ module.exports = {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+ 
+      extend: {
+        colors: {
+          primary: "#5E32C0",
+        },
+        fontFamily:{
+          "iranSans":["iranSans"],
+        }
+      },
+    
   },
   plugins: [],
 }
