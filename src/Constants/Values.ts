@@ -1,0 +1,49 @@
+import { ICaracter } from "../types/interfaces";
+
+export const Values: ICaracter[] = [
+    {
+        character:"1",
+        type:"value"
+    },
+    {
+        character:"2",
+        type:"value"
+    },
+    {
+        character:"3",
+        type:"value"
+    },
+    {
+        character:"4",
+        type:"value"
+    },
+    {
+        character:"5",
+        type:"value"
+    },
+    {
+        character:"6",
+        type:"value"
+    },
+    {
+        character:"7",
+        type:"value"
+    },
+    {
+        character:"8",
+        type:"value"
+    },
+    {
+        character:"9",
+        type:"value"
+    },
+    {
+        character:".",
+        type:"value"
+    },
+    {
+        character:"0",
+        type:"value"
+    },
+ 
+];

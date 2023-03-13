@@ -9,7 +9,7 @@ const App = () => {
     <Wrapper >
       <Header />
 
-      <div className=" flex-auto flex ">
+      <div className=" flex-auto flex  ">
         <SideBar />
         <Container >
         <Calculator/>
