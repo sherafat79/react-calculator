@@ -1,11 +1,12 @@
-import React from "react"
+import React, { useContext } from "react"
 
 type Props = {
     children?: React.ReactNode;
+    isDark:boolean
 }
 
-const Wrapper: React.FC<Props> = ({children}) => (
-    <div className="h-screen bg-slate-50 flex flex-col ">
+const Wrapper: React.FC<Props> = ({children,isDark}) => (
+    <div className={`h-screen  flex flex-col ${isDark?"dark":""}`}>
         {children}
     </div>
 )

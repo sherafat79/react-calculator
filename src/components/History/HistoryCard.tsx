@@ -1,11 +1,11 @@
 import React from "react";
 type Props = {
-
+result:string
 }
-const HistoryCard: React.FC<Props> = () => (
-    <div className="bg-white w-full p-5 ltr font-iranSans shadow-lg rounded-lg my-2">
+const HistoryCard: React.FC<Props> = ({result}) => (
+    <div className="bg-white w-full p-5 dark:bg-zinc-600 ltr font-iranSans shadow-lg rounded-lg my-2">
       <p className="text-xl font-medium  tracking-widest">
-      2+3=5
+    {result}
       </p>
     </div>
 )

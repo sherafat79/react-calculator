@@ -1,6 +1,6 @@
-import { ICaracter } from "../types/interfaces";
+import { ICharacter } from "../types/interfaces";
 
-export const Values: ICaracter[] = [
+export const Values: ICharacter[] = [
     {
         character:"1",
         type:"value"
@@ -38,7 +38,7 @@ export const Values: ICaracter[] = [
         type:"value"
     },
     {
-        character:".",
+        character:"CLS",
         type:"value"
     },
     {

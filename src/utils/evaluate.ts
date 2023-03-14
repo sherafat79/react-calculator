@@ -4,14 +4,44 @@ let mul = /((?:\-)?\d+(?:\.\d+)?) ?\* ?((?:\-)?\d+(?:\.\d+)?)/ // Regex for iden
 let div = /((?:\-)?\d+(?:\.\d+)?) ?\/ ?((?:\-)?\d+(?:\.\d+)?)/ // Regex for identifying division (x / y)
 let add = /((?:\-)?\d+(?:\.\d+)?) ?\+ ?((?:\-)?\d+(?:\.\d+)?)/ // Regex for identifying addition (x + y)
 let sub = /((?:\-)?\d+(?:\.\d+)?) ?- ?((?:\-)?\d+(?:\.\d+)?)/  // Regex for identifying subtraction (x - y)
+let sqrt = /√(-?\d+)\b/
+let Sine = /\bsin (-?\d+)\b/
+let cosine = /\bcos (-?\d+)\b/
+let tangent = /\btan (-?\d+)\b/
+let logaritm = /\blog (-?\d+)\b/
 
-let Sine = /\bsin(-?\d+$)\b/
-let cosine = /\bcos(-?\d+$)\b/
-let tangent = /\btan(-?\d+$)\b/
-let logaritm = /\blog(-?\d+$)\b/
-
-export function evaluate(expr: string): any {
-console.log(expr)
+function replaceTrigonometrics(expr: string): any {
+    if (isNaN(Number(expr))) {
+        if (Sine.test(expr)) {
+            let newExpr = expr.replace(Sine, function (match, base): any {
+                return Math.sin(Number(base));
+            });
+            return replaceTrigonometrics(newExpr);
+        }
+        else if (cosine.test(expr)) {
+            let newExpr = expr.replace(cosine, function (match, base): any {
+                return Math.cos(Number(base));
+            });
+            return replaceTrigonometrics(newExpr);
+        }
+        else if (tangent.test(expr)) {
+            let newExpr = expr.replace(tangent, function (match, base): any {
+                return Math.tan(Number(base));
+            });
+            return replaceTrigonometrics(newExpr);
+        }
+        else if (logaritm.test(expr)) {
+            let newExpr = expr.replace(logaritm, function (match, base): any {
+                return Math.log(Number(base));
+            });
+            return replaceTrigonometrics(newExpr);
+        }
+        else {
+            return expr;
+        }
+    }
+}
+function evaluate(expr: string): any {
     if (isNaN(Number(expr))) {
         if (parens.test(expr)) {
             let newExpr = expr.replace(parens, function (match, subExpr) {
@@ -19,33 +49,16 @@ console.log(expr)
             });
             return evaluate(newExpr);
         }
+        
         else if (exp.test(expr)) {
             let newExpr = expr.replace(exp, function (match, base, pow): any {
                 return Math.pow(Number(base), Number(pow));
             });
             return evaluate(newExpr);
         }
-        else if (Sine.test(expr)) {
-            let newExpr = expr.replace(Sine, function (match, base): any {
-                return Math.sin(Number(base));
-            });
-            return evaluate(newExpr);
-        }
-        else if (cosine.test(expr)) {
-            let newExpr = expr.replace(cosine, function (match, base): any {
-                return Math.cos(Number(base));
-            });
-            return evaluate(newExpr);
-        }
-        else if (tangent.test(expr)) {
-            let newExpr = expr.replace(tangent, function (match, base): any {
-                return Math.tan(Number(base));
-            });
-            return evaluate(newExpr);
-        }
-        else if (logaritm.test(expr)) {
-            let newExpr = expr.replace(logaritm, function (match, base): any {
-                return Math.log(Number(base));
+        else if (sqrt.test(expr)) {
+            let newExpr = expr.replace(sqrt, function (match, a): any {
+                return Math.sqrt(a);
             });
             return evaluate(newExpr);
         }
@@ -76,9 +89,18 @@ console.log(expr)
             });
             return evaluate(newExpr);
         }
+       
         else {
             return expr;
         }
     }
     return Number(expr);
 }
+
+
+const calculate = (expr: string): any => {
+    const newExp = replaceTrigonometrics(expr);
+    const finalExp = evaluate(newExp);
+    return finalExp
+}
+export default calculate;

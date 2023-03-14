@@ -1,4 +1,7 @@
-export interface ICaracter {
-    character:string,
-    type:"value"|"operator",
+export interface ICharacter {
+    character: string,
+    type: "value" | "operator",
+}
+export interface IResult {
+    result: string
 }
