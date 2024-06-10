@@ -2,7 +2,7 @@ import { useContext } from "react";
 import AppContext from "../context/AppContext";
 
 const Header = () => {
-  const { darkModeHandler, darkMode } = useContext(AppContext)
+  const { darkModeHandler, darkMode } = useContext(AppContext);
 
   return (
     <div className="bg-teal-50 shadow-md w-full p-4 flex justify-between dark:text-white dark:bg-blue-500 ">
