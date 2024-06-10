@@ -9,15 +9,14 @@ This repository contains a simple engineering calculator built using React, Type
 - [Usage](#usage)
 - [Project Structure](#project-structure)
 - [Technologies Used](#technologies-used)
-- [Contributing](#contributing)
-- [License](#license)
+
 
 ## Features
 
 - Basic arithmetic operations: addition, subtraction, multiplication, and division.
 - Engineering-specific calculations.
 - Responsive design with Tailwind CSS.
-- Modern UI with Ant Design components.
+
 
 ## Installation
 
