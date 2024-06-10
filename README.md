@@ -1,6 +1,6 @@
 # Simple Engineering Calculator
 
-This repository contains a simple engineering calculator built using React, TypeScript, Ant Design, and Tailwind CSS. It includes basic arithmetic operations and some engineering-specific calculations.
+This repository contains a simple engineering calculator built using React, TypeScript, and Tailwind CSS. It includes basic arithmetic operations and some engineering-specific calculations.
 
 ## Table of Contents
 
